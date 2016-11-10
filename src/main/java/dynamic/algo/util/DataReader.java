@@ -1,5 +1,14 @@
 package dynamic.algo.util;
 
+import dynamic.algo.data.DataHolder;
+import dynamic.algo.data.Item;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Collections;
+import java.util.Scanner;
+
 /**
  * Created by papu bhattacharya on 10/11/16.
  */
@@ -9,7 +18,7 @@ public class DataReader {
      * Constructor for KnapsackDataReader sets the filename passed to the instance of filename in the class
      * @param filename, the file containing the knapsack information
      */
-    public KnapsackDataReader(String filename)
+    public DataReader(String filename)
     {
         this.filename=filename;
     }
@@ -19,10 +28,10 @@ public class DataReader {
      * readPoints method reads in the information in the data file.  It sets the first number to the number of items, the next number
      * to the maximum weight, and then creates an arraylist of items for the numbers in the rest of the data file.  If the file cannot
      * be the user is notified that the file cannot be opened
-     * @param filename, the name of the file containing the knapsack data
+     * @paramfilename, the name of the file containing the knapsack data
      * @return, Knapsack that has all of the information contained in the file in the form of a knapsack
      */
-    public Knapsack readPoints(String filename)
+    public DataHolder readPoints()
     {
         //Makes sure the file can be opened
         try
@@ -46,16 +55,16 @@ public class DataReader {
             totalWeight=s.nextInt();
         }
         //creates a knapsack object
-        Knapsack knapsack=new Knapsack(totalWeight);
+        DataHolder dataHolder=new DataHolder(totalWeight);
         for(int j=0; j<numItems; j++)
         {
             // adds all the items to the knapsack list of items
-            knapsack.items.add(new Item(s.nextInt(), s.nextInt(),s.nextInt()));
+            dataHolder.items.add(new Item(s.nextInt(), s.nextInt(),s.nextInt()));
         }
         // Sorts the items by the ratio of their profit to weight
-        Collections.sort(knapsack.items);
+        Collections.sort(dataHolder.items);
         // adds the object representing the "top" of the tree
-        knapsack.items.add(0,new Item(0,0,0));
-        return knapsack;
+        dataHolder.items.add(0,new Item(0,0,0));
+        return dataHolder;
     }
 }
