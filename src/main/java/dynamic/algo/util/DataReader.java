@@ -26,7 +26,7 @@ public class DataReader {
     private Scanner s;
     /**
      * readPoints method reads in the information in the data file.  It sets the first number to the number of items, the next number
-     * to the maximum weight, and then creates an arraylist of items for the numbers in the rest of the data file.  If the file cannot
+     * to the maximum time, and then creates an arraylist of items for the numbers in the rest of the data file.  If the file cannot
      * be the user is notified that the file cannot be opened
      * @paramfilename, the name of the file containing the knapsack data
      * @return, Knapsack that has all of the information contained in the file in the form of a knapsack
@@ -49,7 +49,7 @@ public class DataReader {
             numItems=s.nextInt();
         }
         int totalWeight=0;
-        //sets total weight to the next int in the file
+        //sets total time to the next int in the file
         if(s.hasNext())
         {
             totalWeight=s.nextInt();
@@ -61,7 +61,7 @@ public class DataReader {
             // adds all the items to the knapsack list of items
             dataHolder.items.add(new Item(s.nextInt(), s.nextInt(),s.nextInt()));
         }
-        // Sorts the items by the ratio of their profit to weight
+        // Sorts the items by the ratio of their satisfaction to time
         Collections.sort(dataHolder.items);
         // adds the object representing the "top" of the tree
         dataHolder.items.add(0,new Item(0,0,0));

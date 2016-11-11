@@ -5,39 +5,39 @@ package dynamic.algo.data;
  */
 /**
  * This class contains the implementation for the object of type item.  The item contains the information
- * about each item in a Knapsack (the number, profit, and weight of that item)
+ * about each item in a Knapsack (the number, satisfaction, and time of that item)
  *
  */
 public class Item implements Comparable<Item>
 {
 
     public int number;
-    public int profit;
-    public int weight;
+    public int satisfaction;
+    public int time;
     /**
      * Constructor for an Item
      * @param number defining the item number in the knapsack
-     * @param profit defining the profit of the item in the knapsack
-     * @param weight defining the weight of the item in the knapsack
+     * @param satisfaction defining the satisfaction of the item in the knapsack
+     * @param time defining the time of the item in the knapsack
      */
-    public Item(int number, int profit, int weight)
+    public Item(int number, int satisfaction, int time)
     {
         this.number=number;
-        this.profit=profit;
-        this.weight=weight;
+        this.satisfaction =satisfaction;
+        this.time =time;
     }
     @Override
     /**
      * Implemented method from interface comparable.  Allows for a list of items
-     * to be sorted by the ratio of their profit to their weight.
+     * to be sorted by the ratio of their satisfaction to their time.
      * @param Item i defining the item to be compared to.
      * @return int	1 if (this) is > item i
      * 			   -1 if (this) is < item i
      * 				0 if (this) is = item i
      */
     public int compareTo(Item i) {
-        float ratio = (float)this.profit/this.weight;
-        float secondRatio = (float)i.profit/i.weight;
+        float ratio = (float)this.satisfaction /this.time;
+        float secondRatio = (float)i.satisfaction /i.time;
         if(ratio > secondRatio) {
             return -1;
         }
@@ -49,7 +49,7 @@ public class Item implements Comparable<Item>
     }
     public String toString()
     {
-        return "Item: " + this.number + " Profit: " + this.profit + " Weight: " + this.weight;
+        return "Item: " + this.number + " satisfaction: " + this.satisfaction + " Time: " + this.time;
     }
 
 }

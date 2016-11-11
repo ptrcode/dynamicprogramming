@@ -7,59 +7,59 @@ import java.util.ArrayList;
  */
 public class DataHolder {
 
-    public int maxWeight;
-    public int weight;
+    public int maxTime;
+    public int timeSlice;
     public ArrayList<Item> items;
-    public int profit;
+    public int satisfaction;
     /**
      * Constructor of Knapsack creates a knapsack
-     * @param maxWeight, the maximum weight that can be placed in the knapsack
+     * @param maxTime, the maximum time that can be placed in the knapsack
      */
-    public DataHolder(int maxWeight)
+    public DataHolder(int maxTime)
     {
-        this.maxWeight = maxWeight;
+        this.maxTime = maxTime;
         this.items=new ArrayList<Item>();
-        this.profit = 0;
+        this.satisfaction = 0;
     }
-    public DataHolder(int maxWeight, ArrayList<Item> i)
+    public DataHolder(int maxTime, ArrayList<Item> i)
     {
-        this.maxWeight = maxWeight;
+        this.maxTime = maxTime;
         this.items = i;
-        this.profit = 0;
+        this.satisfaction = 0;
     }
     /**
-     * setProfit sets the profit of the knapsack
-     * @param profit, an int determining the profit.
+     * setSatisfaction sets the satisfaction of the problem
+     * @param satisfaction, an int determining the satisfaction.
      */
-    public void setProfit(int profit) {
-        this.profit = profit;
+    public void setSatisfaction(int satisfaction) {
+        this.satisfaction = satisfaction;
     }
     /**
-     * setProfit sets the weight of the knapsack
-     * @paramprofit, an int determining the weight.
+     * setTime sets the time of the eating
+     * @param time, an int determining the time.
      */
-    public void setWeight(int w) {
-        this.weight = w;
+    public void setTime(int time) {
+        this.timeSlice = time;
     }
     /**
-     * CalculateWrofit determines the total profit of the items in the knapsack and stores
-     * it as the profit of the knapsack.
+     * calculateSatisfaction determines the total satisfaction of the items in the knapsack and stores
+     * it as the satisfaction of the problem.
      */
-    public void calculateProfit() {
+    public void calculateSatisfaction() {
         int counter = 0;
         for(Item i: items)
-            counter+=i.profit;
-        this.profit = counter;
+            counter+=i.satisfaction;
+        this.satisfaction = counter;
     }
     /**
-     * CalculateWeight determines the total weight of the items in the knapsack and stores
-     * it as the weight of the knapsack.
+     * calculateTime determines the total time of the items in the DataHolder and stores
+     * it as the time of the problem.
      */
-    public void calculateWeight() {
+    public void calculateTime() {
         int counter = 0;
         for(Item i: items)
-            counter+=i.weight;
-        this.weight = counter;
+            counter+=i.time;
+        this.timeSlice = counter;
     }
 
 }
