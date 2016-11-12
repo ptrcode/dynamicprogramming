@@ -21,7 +21,7 @@ public class DataHolder {
     }
 
     /**
-     * Constructor of Knapsack creates a knapsack
+     * Constructor of DataHolder creates a bucket
      * @param maxTime, the maximum time that can be placed in the knapsack
      */
     public DataHolder(int maxTime)

@@ -5,7 +5,7 @@ package dynamic.algo.data;
  */
 /**
  * This class contains the implementation for the object of type item.  The item contains the information
- * about each item in a Knapsack (the number, satisfaction, and time of that item)
+ * about each item in a dataholder (the number, satisfaction, and time of that item)
  *
  */
 public class Item implements Comparable<Item>

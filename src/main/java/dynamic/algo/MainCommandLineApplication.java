@@ -19,14 +19,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MainCommandLineApplication implements CommandLineRunner {
 
-	// how a command line spring application can execute an
+	// this is command line spring application can execute an
 	// injected bean service. Also passing @Value to inject
 	// command line args ('--name=whatever') or application properties
 
     //calling the algo through this stub
 	@Autowired
 	private OptimalCandidateSelection optimalCandidateSelection;
-
+    //Main run method
 	@Override
 	public void run(String... args) {
 		DataHolder output =optimalCandidateSelection.processData();

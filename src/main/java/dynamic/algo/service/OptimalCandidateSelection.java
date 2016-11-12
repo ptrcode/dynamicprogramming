@@ -31,7 +31,7 @@ public class OptimalCandidateSelection {
         System.out.println("\nDynamic Processing");
         int totalTime = 0;
         DynamicAlgo algo = new DynamicAlgo(dataHolder);
-        DataHolder output = algo.makeKnapSack();
+        DataHolder output = algo.findOptimal();
         System.out.print("Items in Outcome:\n");
         for (Item i : output.items) {
             System.out.print(i.toString());
