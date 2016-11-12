@@ -15,11 +15,15 @@ public class OptimalCandidateSelection {
     @Value("${data:./data/data.txt}")
     private String dataPath;
 
+    public void setDataPath(String dataPath) {
+        this.dataPath = dataPath;
+    }
+
     public String getDataPath() {
         return "Hello " + this.dataPath;
     }
 
-    public void processData() {
+    public DataHolder processData() {
         DataReader data = new DataReader(dataPath);
         DataHolder dataHolder = data.readPoints();
         //Runs the Dynamic algo
@@ -27,15 +31,16 @@ public class OptimalCandidateSelection {
         System.out.println("\nDynamic Processing");
         int totalTime = 0;
         DynamicAlgo algo = new DynamicAlgo(dataHolder);
-        DataHolder s = algo.makeKnapSack();
-        System.out.print("Items in Outcome: ");
-        for (Item i : s.items) {
+        DataHolder output = algo.makeKnapSack();
+        System.out.print("Items in Outcome:\n");
+        for (Item i : output.items) {
             System.out.print(i.toString());
             totalTime += i.time;
         }
-        System.out.println("\nTotal Satisfaction: " + s.satisfaction);
+        System.out.println("\nTotal Satisfaction: " + output.satisfaction);
         System.out.println("Total Time: " + totalTime);
         long endTime = System.nanoTime();
         System.out.println("Took " + (endTime - startTime) + " ns");
+        return output;
     }
 }

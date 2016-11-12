@@ -29,7 +29,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Tests for {@link MainCommandLineApplication}.
  *
- * @author Dave Syer
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -41,8 +40,8 @@ public class SpringTestSampleSimpleApplicationTests {
 	@Test
 	public void testContextLoads() throws Exception {
 		assertThat(this.ctx).isNotNull();
-		//assertThat(this.ctx.containsBean("OptimalCandidateSelection")).isTrue();
-		//assertThat(this.ctx.containsBean("MainCommandLineApplication")).isTrue();
+		assertThat(this.ctx.containsBean("optimalCandidateSelection")).isTrue();
+		assertThat(this.ctx.containsBean("mainCommandLineApplication")).isTrue();
 	}
 
 }

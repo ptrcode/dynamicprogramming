@@ -2,8 +2,13 @@
 test exams code - copyright free
   */
 
+/**
+ * Created by papu bhattacharya on 10/11/16.
+ */
+
 package dynamic.algo;
 
+import dynamic.algo.data.DataHolder;
 import dynamic.algo.service.OptimalCandidateSelection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +23,20 @@ public class MainCommandLineApplication implements CommandLineRunner {
 	// injected bean service. Also passing @Value to inject
 	// command line args ('--name=whatever') or application properties
 
+    //calling the algo through this stub
 	@Autowired
-	private OptimalCandidateSelection optimalCandidateService;
+	private OptimalCandidateSelection optimalCandidateSelection;
 
 	@Override
 	public void run(String... args) {
-		optimalCandidateService.processData();
+		DataHolder output =optimalCandidateSelection.processData();
 		if (args.length > 0 && args[0].equals("exitcode")) {
 			throw new ExitException();
 		}
 	}
 
 	public  void getDataPath(String... args){
-		System.out.println(this.optimalCandidateService.getDataPath());
+		System.out.println(this.optimalCandidateSelection.getDataPath());
 		if (args.length > 0 && args[0].equals("exitcode")) {
 			throw new ExitException();
 		}

@@ -11,6 +11,15 @@ public class DataHolder {
     public int timeSlice;
     public ArrayList<Item> items;
     public int satisfaction;
+
+    public int getTimeSlice() {
+        return timeSlice;
+    }
+
+    public int getSatisfaction() {
+        return satisfaction;
+    }
+
     /**
      * Constructor of Knapsack creates a knapsack
      * @param maxTime, the maximum time that can be placed in the knapsack
