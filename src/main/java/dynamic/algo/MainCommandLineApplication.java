@@ -23,7 +23,7 @@ public class MainCommandLineApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		System.out.println(this.optimalCandidateService.processData());
+		optimalCandidateService.processData();
 		if (args.length > 0 && args[0].equals("exitcode")) {
 			throw new ExitException();
 		}

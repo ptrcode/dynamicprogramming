@@ -42,24 +42,25 @@ public class DataReader {
         {
             System.err.println("Cannot open file");
         }
+        int totalTime=0;
+        //sets total time to the next int in the file
+        if(s.hasNext())
+        {
+            totalTime=s.nextInt();
+        }
+
         int numItems=0;
         //sets num items to the first int in the file
         if(s.hasNext())
         {
             numItems=s.nextInt();
         }
-        int totalWeight=0;
-        //sets total time to the next int in the file
-        if(s.hasNext())
-        {
-            totalWeight=s.nextInt();
-        }
-        //creates a knapsack object
-        DataHolder dataHolder=new DataHolder(totalWeight);
+        //creates a data holder object
+        DataHolder dataHolder=new DataHolder(totalTime);
         for(int j=0; j<numItems; j++)
         {
             // adds all the items to the knapsack list of items
-            dataHolder.items.add(new Item(s.nextInt(), s.nextInt(),s.nextInt()));
+            dataHolder.items.add(new Item(j+1, s.nextInt(),s.nextInt()));
         }
         // Sorts the items by the ratio of their satisfaction to time
         Collections.sort(dataHolder.items);

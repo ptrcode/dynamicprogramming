@@ -49,7 +49,7 @@ public class Item implements Comparable<Item>
     }
     public String toString()
     {
-        return "Item: " + this.number + " satisfaction: " + this.satisfaction + " Time: " + this.time;
+        return "Item: " + this.number + " satisfaction: " + this.satisfaction + " Time: " + this.time+ "\n";
     }
 
 }
