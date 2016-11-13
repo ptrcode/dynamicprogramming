@@ -14,7 +14,8 @@ import org.springframework.boot.test.rule.OutputCapture;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
 /**
  * Tests for {@link MainCommandLineApplication}.
  */
@@ -69,5 +70,12 @@ public class MainCommandLineApplicationTests {
         assertTrue(output.items.size() > 0);
         assertTrue(output.items.size() <= 100);
         System.out.println(output);
+    }
+    @Test
+    public void testOutPutContentNotNull() throws Exception {
+        OptimalCandidateSelection service = new OptimalCandidateSelection();
+        service.setDataPath("./data/data.txt");
+        assertNotNull("Returned object isn't null", service.processData());
+        //test , if the output is not null
     }
 }
