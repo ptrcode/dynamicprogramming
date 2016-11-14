@@ -6,3 +6,5 @@ The data folder --have the data structure to hold the items & bucket
 util - has the datareader 
 You can simply run the program from any editor or 
 mvn spring-boot:run
+
+The program is tested in jdk1.8 environment
